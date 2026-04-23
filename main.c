@@ -34,7 +34,8 @@ while(1)
     }
 
     args=tokenize(line);
-    if(cheack_builtin(args,env))
+
+    if(check_builtin(args,env))
     {
         free(line);
         free(args);
@@ -42,6 +43,7 @@ while(1)
     }
 
     path=find_path(args[0],env);
+
     if(path==NULL)
     {
         fprintf(stderr, "%s: command not found\n", args[0]);
@@ -57,5 +59,7 @@ while(1)
     free(path);
 
 }
+
 return(0);
+
 }
