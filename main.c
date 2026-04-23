@@ -11,6 +11,8 @@
 int main(int argc, char **argv, char **env)
 
 char*line;
+char**args;
+char*path;
 
 while(1)
 {
@@ -28,6 +30,23 @@ while(1)
     if(line[0]=='\n')
     {
         free(line);
+        continue;
+    }
+
+    args=tokenize(line);
+    if(cheack_builtin(args,env))
+    {
+        free(line);
+        free(args);
+        continue;
+    }
+
+    path=find_path(args[0],env);
+    if(path==NULL)
+    {
+        fprintf(stderr, "%s: command not found\n", args[0]);
+        free(line);
+        free(args);
         continue;
     }
 
