@@ -9,7 +9,7 @@
  * Return: Always 0 (Success).
  */
 int main(int argc, char **argv, char **env)
-
+{
 char*line;
 char**args;
 char*path;
@@ -50,5 +50,12 @@ while(1)
         continue;
     }
 
-    
+    executor(path,args,env);
+
+    free(line);
+    free(args);
+    free(path);
+
+}
+return(0);
 }
