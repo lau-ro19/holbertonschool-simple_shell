@@ -23,6 +23,7 @@ void executor(char *path, char **args, char **env);
 
 /*path.c*/
 char *find_path(char *command, char **env);
+char *get_path(char **env);
 
 /*builtin.c*/
 void builtin_exit(char **args, char **env);
