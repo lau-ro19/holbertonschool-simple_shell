@@ -11,8 +11,6 @@
 int main(int argc, char **argv, char **env)
 {
 char *line;
-char **args;
-char *path;
 
 (void)argc;
 (void)argv;
