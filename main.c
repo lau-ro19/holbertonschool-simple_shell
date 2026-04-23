@@ -56,7 +56,7 @@ void run_command(char *line, char **env)
 	{
 		free(line);
 		free(args);
-		continue;
+		return;
 	}
 
 	path = find_path(args[0], env);
@@ -66,7 +66,7 @@ void run_command(char *line, char **env)
 		fprintf(stderr, "%s: command not found\n", args[0]);
 		free(line);
 		free(args);
-		continue;
+		return;
 	}
 
 	executor(path, args, env);
