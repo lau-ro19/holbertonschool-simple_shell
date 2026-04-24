@@ -51,9 +51,10 @@ void run_command(char *line, char **env)
 	char *path;
 
 	args = tokenize(line);
-	if (args == NULL)
+	if (args == NULL || args[0] == NULL)
 	{
 		free(line);
+		free(args);
 		return;
 	}
 
