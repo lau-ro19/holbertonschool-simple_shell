@@ -12,8 +12,8 @@ char *get_path(char **env)
 	i = 0;
 	while (env[i])
 	{
-		if (strncmp(env[i], "PATH=", 5) == 0)
-			return (env[i] + 5);
+		if (strncmp(env[i], "PATH=", 5) == 0) /** compare 5st char */
+			return (env[i] + 5); /** we skip the first 5 */
 		i++;
 	}
 	return (NULL);
@@ -42,19 +42,19 @@ char *find_path(char *command, char **env)
 		return (NULL);
 	}
 
-	path_env = get_path(env);
+	path_env = get_path(env); /** get value of path */
 	if (path_env == NULL)
 		return (NULL);
 
-	path_copy = strdup(path_env);
-	token = strtok(path_copy, ":");
+	path_copy = strdup(path_env); /** copy the string */
+	token = strtok(path_copy, ":"); /** cut the path w/ : */
 
 	while (token != NULL)
 	{
 		full_path = malloc(strlen(token) + strlen(command) + 2);
 		sprintf(full_path, "%s/%s", token, command);
 
-		if (access(full_path, X_OK) == 0)
+		if (access(full_path, X_OK) == 0) /**check if exist and exec */
 		{
 			free(path_copy);
 			return (full_path);
