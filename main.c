@@ -51,6 +51,11 @@ void run_command(char *line, char **env)
 	char *path;
 
 	args = tokenize(line);
+	if (args == NULL)
+	{
+		free(line);
+		return;
+	}
 
 	if (check_builtin(args, env))
 	{
@@ -63,7 +68,7 @@ void run_command(char *line, char **env)
 
 	if (path == NULL)
 	{
-		fprintf(stderr, "%s: command not found\n", args[0]);
+		fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
 		free(line);
 		free(args);
 		return;
