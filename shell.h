@@ -12,6 +12,7 @@
 
 /* main.c*/
 int main(int argc, char **argv, char **env);
+void run_command(char *line, char **env);
 
 /*parser.c*/
 char *read_line(void);
@@ -22,6 +23,7 @@ void executor(char *path, char **args, char **env);
 
 /*path.c*/
 char *find_path(char *command, char **env);
+char *get_path(char **env);
 
 /*builtin.c*/
 void builtin_exit(char **args, char **env);
