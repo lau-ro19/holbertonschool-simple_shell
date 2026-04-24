@@ -33,6 +33,15 @@ char *find_path(char *command, char **env)
 	char *token;
 	char *full_path;
 
+	/** chemin absolue ou relatif */
+	if (command[0] == '/' || command[0] == '.')
+	{
+		/** vérifier si la commande existe et si elle est éxecutbale  */
+		if (access(command, X_OK) == 0)
+			return (strdup(command));
+		return (NULL);
+	}
+
 	path_env = get_path(env);
 	if (path_env == NULL)
 		return (NULL);
