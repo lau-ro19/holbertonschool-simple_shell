@@ -10,56 +10,75 @@
  */
 int main(int argc, char **argv, char **env)
 {
-char*line;
-char**args;
-char*path;
+char *line;
 
-while(1)
+(void)argc;
+(void)argv;
+
+while (1)
 {
 
-    if(isatty(STDIN_FILENO))
-    write( 1, "$ ", 2);
+	if (isatty(STDIN_FILENO))
+	write(1, "$ ", 2);
 
-    line=read_line();
-    if(line==NULL)
-    {
-        free(line);
-        exit(0);
-    }
+	line = read_line();
+	if (line == NULL)
+	{
+		free(line);
+		exit(0);
+	}
 
-    if(line[0]=='\n')
-    {
-        free(line);
-        continue;
-    }
+	if (line[0] == '\n')
+	{
+		free(line);
+		continue;
+	}
+	run_command(line, env);
+}
+return (0);
+}
 
-    args=tokenize(line);
+/**
+ * run_command - parses and executes a command
+ * @line: the command line read from the user
+ * @env: the array of environment variables
+ *
+ * Return: void
+ */
+void run_command(char *line, char **env)
+{
+	char **args;
+	char *path;
 
-    if(check_builtin(args,env))
-    {
-        free(line);
-        free(args);
-        continue;
-    }
+	args = tokenize(line);
+	if (args == NULL)
+	{
+		free(line);
+		return;
+	}
 
-    path=find_path(args[0],env);
+	if (check_builtin(args, env))
+	{
+		free(line);
+		free(args);
+		return;
+	}
 
-    if(path==NULL)
-    {
-        fprintf(stderr, "%s: command not found\n", args[0]);
-        free(line);
-        free(args);
-        continue;
-    }
+	path = find_path(args[0], env);
 
-    executor(path,args,env);
+	if (path == NULL)
+	{
+		fprintf(stderr, "./hsh: 1: %s: not found\n", args[0]);
+		free(line);
+		free(args);
+		return;
+	}
 
-    free(line);
-    free(args);
-    free(path);
+	executor(path, args, env);
+
+	free(line);
+	free(args);
+	free(path);
 
 }
 
-return(0);
-
-}
