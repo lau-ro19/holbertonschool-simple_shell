@@ -12,7 +12,7 @@
 
 /* main.c*/
 int main(int argc, char **argv, char **env);
-void run_command(char *line, char **env);
+void run_command(char *line, char **env, char *prog_name, int *count);
 
 /*parser.c*/
 char *read_line(void);
