@@ -65,8 +65,6 @@ void run_command(char *line, char **env, char *prog_name, int count)
 
 	if (check_builtin(args, env, line)) /**check if exit or env */
 	{
-		free(line);
-		free(args);
 		return;
 	}
 
