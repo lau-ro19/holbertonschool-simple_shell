@@ -17,5 +17,12 @@ void executor(char *path, char **args, char **env)
     {
         perror("fork");
     }
-
+    else if (pid == 0)
+    {
+        if (execve(path, args, env) == -1)
+        {
+            perror("execve");
+            exit(EXIT_FAILURE);
+        }
+    }
 }
