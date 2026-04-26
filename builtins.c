@@ -19,8 +19,9 @@ void builtin_env(char **env)
  * builtin_exit - exit the shell
  * @args: the array of arguments
  * @env: the array of environment variable
+ * @line: input line to free before exiting
  */
-void builtin_exit(char **args, char **env)
+void builtin_exit(char **args, char **env, char *line)
 {
 	int status;
 
@@ -28,6 +29,8 @@ void builtin_exit(char **args, char **env)
 	status = 0;
 	if (args[1] != NULL)
 		status = atoi(args[1]);
+	free(args);
+	free(line);
 	exit(status);
 
 }
@@ -35,14 +38,14 @@ void builtin_exit(char **args, char **env)
  * check_builtin - checks if a command is a builtin and executes it
  * @args: the array of arguments
  * @env: the array of environment variables
- *
+ * @line: input line, forwarded to builtin_exit for cleanup
  * Return: 1 if builtin, 0 otherwise
  */
-int check_builtin(char **args, char **env)
+int check_builtin(char **args, char **env, char *line)
 {
 	if (strcmp(args[0], "exit") == 0)
 	{
-		builtin_exit(args, env);
+		builtin_exit(args, env, line);
 		return (1);
 	}
 	else if (strcmp(args[0], "env") == 0)
