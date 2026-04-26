@@ -22,7 +22,11 @@ void executor(char *path, char **args, char **env)
         if (execve(path, args, env) == -1)
         {
             perror("execve");
-            exit(EXIT_FAILURE);
+            exit(127);
         }
+    }
+    else
+    {
+        waitpid(pid, &status, 0);
     }
 }
