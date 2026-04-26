@@ -26,9 +26,9 @@ char *find_path(char *command, char **env);
 char *get_path(char **env);
 
 /*builtin.c*/
-void builtin_exit(char **args, char **env);
+void builtin_exit(char **args, char **env, char *line);
 void builtin_env(char **env);
-int check_builtin(char **args, char **env);
+int check_builtin(char **args, char **env, char *line);
 
 
 #endif
