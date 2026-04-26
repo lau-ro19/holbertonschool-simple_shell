@@ -27,7 +27,7 @@ void builtin_exit(char **args, char **env)
 	(void)env;
 	status = 0;
 	if (args[1] != NULL)
-		status = atoi(args[1]);
+		status = atoi(args[1]); /** convert in int */
 	free(args);
 	exit(status);
 
@@ -41,7 +41,7 @@ void builtin_exit(char **args, char **env)
  */
 int check_builtin(char **args, char **env)
 {
-	if (strcmp(args[0], "exit") == 0)
+	if (strcmp(args[0], "exit") == 0) /**compare the string */
 	{
 		builtin_exit(args, env);
 		return (1);
