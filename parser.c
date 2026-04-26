@@ -7,10 +7,15 @@
 
 char *read_line(void)
 {
-    char *line = NULL;
-    size_t bufsize = 0;
+    char *line;
+    size_t n;
+    ssize_t chars;
 
-    if (getline(&line, &bufsize, stdin) == -1)
+    line = NULL;
+    n = 0;
+
+    chars = getline(&line, &n, stdin);
+    if (chars == -1)
     {
         free(line);
         return (NULL);
@@ -23,18 +28,22 @@ char *read_line(void)
  * Return: An array of strings (tokens), or NULL on failure.
  */
 char **tokenize(char *line)
-{
-    int bufsize = 64,
-    int i = 0;
-    char **tokens = malloc(bufsize * sizeof(char *));
+{ 
+    char **tokens;
     char *token;
+    int bufsize;
+    int i ;
 
-    if (!tokens)
+    bufsize = 64;
+    i = 0;
+    tokens = malloc(bufsize * sizeof(char *));
+
+    if (tokens == NULL)
     {
-        perror("malloc");
-        exit(EXIT_FAILURE);
+        return (NULL);
     }
-    token = strtok(line, " \t\r\n\a");
+    tokens = strtok(line, " \n\t");
+    
     while (token != NULL)
     {
         tokens[i] = token;
@@ -43,13 +52,12 @@ char **tokenize(char *line)
         {
             bufsize += 64;
             tokens = realloc(tokens, bufsize * sizeof(char *));
-            if (!tokens)            
+            if (tokens == NULL)            
             {
-                perror("realloc");
-                exit(EXIT_FAILURE); 
+                return (NULL);
             }
         }
-        token = strtok(NULL, " \t\r\n\a");
+        token = strtok(NULL, " \n\t");
     }
     tokens[i] = NULL;
     return (tokens);
