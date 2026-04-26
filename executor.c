@@ -7,7 +7,7 @@
  * @env: Environment variables.
  */
 
-void executor(char *path, char **args, char **env)
+int executor(char *path, char **args, char **env)
 {
     pid_t pid;
     int status;
@@ -16,17 +16,20 @@ void executor(char *path, char **args, char **env)
     if (pid == -1)
     {
         perror("fork");
+        return (1);
     }
-    else if (pid == 0)
+    if (pid == 0)
     {
-        if (execve(path, args, env) == -1)
-        {
-            perror("execve");
-            exit(127);
-        }
+        execve(path, args, env);
+        perror("execve");
+        exit(127);
+        
     }
     else
     {
         waitpid(pid, &status, 0);
     }
+    if (WIFEXITED(status))
+        return (WEXITSTATUS(status));
+    return (0);
 }
