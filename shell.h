@@ -12,14 +12,14 @@
 
 /* main.c*/
 int main(int argc, char **argv, char **env);
-void run_command(char *line, char **env, char *prog_name, int *count);
+void run_command(char *line, char **env, char *prog_name, int count);
 
 /*parser.c*/
 char *read_line(void);
 char **tokenize(char *line);
 
 /*executor.c*/
-void executor(char *path, char **args, char **env);
+int executor(char *path, char **args, char **env);
 
 /*path.c*/
 char *find_path(char *command, char **env);
