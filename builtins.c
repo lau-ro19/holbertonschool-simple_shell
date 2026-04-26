@@ -28,7 +28,6 @@ void builtin_exit(char **args, char **env)
 	status = 0;
 	if (args[1] != NULL)
 		status = atoi(args[1]);
-	free(args);
 	exit(status);
 
 }
