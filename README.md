@@ -157,6 +157,7 @@ flowchart TB
 
 ```bash
 man ./man_1_simple_shell
+```
 
 ## Memory Management
 
