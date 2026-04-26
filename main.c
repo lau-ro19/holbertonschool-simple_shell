@@ -36,7 +36,7 @@ while (1) /** infinite loop */
 		free(line);
 		continue;
 	}
-	run_command(line, env, argv[0], &count);
+	run_command(line, env, argv[0], count);
 }
 return (0);
 }
@@ -74,7 +74,7 @@ void run_command(char *line, char **env, char *prog_name, int count)
 
 	if (path == NULL)
 	{
-		fprintf(stderr, "%s: %d: %s: not found\n", prog_name, *count, args[0]);
+		fprintf(stderr, "%s: %d: %s: not found\n", prog_name, count, args[0]);
 		free(line);
 		free(args);
 		return;
