@@ -32,3 +32,5 @@ int check_builtin(char **args, char **env)
 
 	return (0);
 }
+Si args[0] n'est ni "exit" ni "env":
+    -Retourner 0 (indique au shell de chercher la commande dans le PATH ou dans Executor)
