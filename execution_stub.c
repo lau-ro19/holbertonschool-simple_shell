@@ -5,8 +5,9 @@
 ** teammate's real fork/execve logic is merged in. Delete this file
 ** (and remove it from the Makefile's SRCS) once you add theirs.
 */
-int	execute_command(char *path)
+int execute_command(char *path, char **argv)
 {
 	(void)path;
+	(void)argv;
 	return (0);
 }
