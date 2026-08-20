@@ -1,9 +1,15 @@
 #include "shell.h"
-#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
+/**
+ * check_builtin - Checks and executes shell built-in commands
+ * @args: Array of argument strings
+ * @env: Array of environment variables
+ *
+ * Return: 1 if a built-in was executed, 0 otherwise
+ */
 int check_builtin(char **args, char **env)
 {
 	int i;
@@ -32,5 +38,3 @@ int check_builtin(char **args, char **env)
 
 	return (0);
 }
-Si args[0] n'est ni "exit" ni "env":
-    -Retourner 0 (indique au shell de chercher la commande dans le PATH ou dans Executor)
