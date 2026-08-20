@@ -2,13 +2,17 @@
 
 int execute_command(char **args, char **env)
 {
+	pid_t pid;
+
 	if (args == NULL || args[0] == NULL)
 		return (0);
 
+	pid = fork();
+	if (pid == -1)
+	{
+		perror("fork");
+		return (-1);
+	}
+
 	return (0);
 }
-Déclarer la variable pid
-Appeler fork()
-Si pid < 0 (échec de fork):
-    Afficher une erreur avec perror
-    Retourner (-1)
