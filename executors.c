@@ -1,5 +1,16 @@
 #include "shell.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
 
+/**
+ * execute_command - Executes a command in a child process
+ * @args: Array of argument strings (command name and flags)
+ * @env: Environment variables array
+ *
+ * Return: Exit status of the child process, or -1 on failure
+ */
 int execute_command(char **args, char **env)
 {
 	pid_t pid;
