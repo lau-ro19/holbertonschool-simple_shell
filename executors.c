@@ -1,2 +1,9 @@
-Si args est NULL ou args[0] est NULL:
-    Retourner (0)  // Rien à exécuter
+#include "shell.h"
+
+int execute_command(char **args, char **env)
+{
+	if (args == NULL || args[0] == NULL)
+		return (0);
+
+	return (0);
+}
