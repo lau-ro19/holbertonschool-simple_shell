@@ -25,3 +25,9 @@ int execute_command(char **args, char **env)
 
 	return (0);
 }
+Déclarer la variable status
+Dans le processus Parent (pid > 0):
+    Attendre la fin de l'enfant avec waitpid(pid, &status, 0)
+    Si l'enfant s'est terminé normalement (WIFEXITED):
+        Extraire le code de retour avec WEXITSTATUS(status)
+        Retourner ce code de retour
