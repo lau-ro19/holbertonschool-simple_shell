@@ -34,6 +34,7 @@ int main(void)
         if (path != NULL)
         {
             execute_command(path);
+			printf("%s\n", path);
             free(path);
         }
         free(line);
