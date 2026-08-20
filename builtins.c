@@ -1,2 +1,9 @@
-Si args est NULL ou args[0] est NULL:
-Retourner 0 (ce n'est pas un builtin)
+#include "shell.h"
+
+int check_builtin(char **args, char **env)
+{
+	if (args == NULL || args[0] == NULL)
+		return (0);
+
+	return (0);
+}
