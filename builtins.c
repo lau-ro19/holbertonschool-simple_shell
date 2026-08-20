@@ -17,3 +17,7 @@ int check_builtin(char **args, char **env)
 
 	return (0);
 }
+Comparer args[0] avec la chaîne "env" si args[0] est égal à "env":
+    - Parcourir le tableau de variables d'environnement
+    - Afficher chaque variable suivie d'un saut de ligne '\n'
+    - Retourner 1 (indique que la commande était un builtin et a été exécutée)
