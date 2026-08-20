@@ -5,18 +5,19 @@
 #include <sys/wait.h>
 
 /**
- * execute_command - Executes a command in a child process
- * @args: Array of argument strings (command name and flags)
+ * execute_command - Executes a binary with its arguments in a child process
+ * @path: Absolute or relative path to the executable file
+ * @args: Array of argument strings (starting with command name)
  * @env: Environment variables array
  *
  * Return: Exit status of the child process, or -1 on failure
  */
-int execute_command(char **args, char **env)
+int execute_command(char *path, char **args, char **env)
 {
 	pid_t pid;
 	int status;
 
-	if (args == NULL || args[0] == NULL)
+	if (path == NULL || args == NULL || args[0] == NULL)
 		return (0);
 
 	pid = fork();
@@ -28,9 +29,9 @@ int execute_command(char **args, char **env)
 
 	if (pid == 0)
 	{
-		if (execve(args[0], args, env) == -1)
+		if (execve(path, args, env) == -1)
 		{
-			perror(args[0]);
+			perror(path);
 			_exit(127);
 		}
 	}
