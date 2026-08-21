@@ -1,4 +1,4 @@
-NAME = shell
+NAME = hsh
 
 SRCS = $(wildcard *.c)
 OBJS = $(SRCS:.c=.o)
