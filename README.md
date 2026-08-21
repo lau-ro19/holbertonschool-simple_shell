@@ -1,4 +1,4 @@
-```markdown
+
 # Simple Shell: Command Line Interface to interact with your OS.
 
 ## Summary
@@ -60,7 +60,6 @@ In case that would help here are some online resources to install those tools de
 If you have git and are comfortable with command line, you can clone the repository directly:
 ```bash
 git clone https://github.com/HeroFactory16/holbertonschool-simple_shell.git
-```
 
 ### 2. Compiling
 
