@@ -37,9 +37,10 @@ int execute_command(char *path, char **args, char **env)
 	}
 	else
 	{
-		waitpid(pid, &status, 0);
-		if (WIFEXITED(status))
-			return (WEXITSTATUS(status));
+		waitpid(pid, &wstatus, 0);
+
+		if (WIFEXITED(wstatus))
+			status = WEXITSTATUS(wstatus);
 	}
 
 	return (0);
