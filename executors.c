@@ -16,6 +16,7 @@ int execute_command(char *path, char **args, char **env)
 {
 	pid_t pid;
 	int status;
+    int wstatus;
 
 	if (path == NULL || args == NULL || args[0] == NULL)
 		return (0);
