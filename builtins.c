@@ -19,7 +19,7 @@ int check_builtin(char **args, char **env)
 
 	if (strcmp(args[0], "exit") == 0)
 	{
-		free_args(args);
+		free_argv(args);
 		exit(0);
 	}
 

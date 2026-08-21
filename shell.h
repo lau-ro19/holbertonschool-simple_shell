@@ -19,7 +19,6 @@ char *search_in_path(char *command);
 char **split_line(char *line);
 int process_line(char *line, char *prog_name, int line_num, int *status);
 void print_prompt(void);
-int execute_command(char *path, char **argv);
 void free_argv(char **argv);
 
 #endif
