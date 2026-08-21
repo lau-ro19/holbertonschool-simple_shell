@@ -44,5 +44,5 @@ int execute_command(char *path, char **args, char **env)
 			status = WEXITSTATUS(wstatus);
 	}
 
-	return (0);
+	return (status);
 }
