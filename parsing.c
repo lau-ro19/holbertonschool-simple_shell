@@ -121,9 +121,8 @@ int process_line(char *line, char *prog_name, int line_num, int *status)
 	}
 	else
 	{
-		execute_command(path, args, environ);
+		*status = execute_command(path, args, environ);
 		free(path);
-		*status = 0;
 	}
 	free_argv(args);
 	return (1);
