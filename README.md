@@ -270,12 +270,12 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./hsh
 ## Technologies Used
 
 <p align="left">
-    <img src="[https://img.shields.io/badge/C-a8b9cc?style=for-the-badge&logo=c&logoColor=white](https://img.shields.io/badge/C-a8b9cc?style=for-the-badge&logo=c&logoColor=white)" alt="C badge">
-    <img src="[https://img.shields.io/badge/GIT-f05032?style=for-the-badge&logo=git&logoColor=white](https://img.shields.io/badge/GIT-f05032?style=for-the-badge&logo=git&logoColor=white)" alt="Git badge">
-    <img src="[https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white](https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white)" alt="GitHub badge">
-    <img src="[https://img.shields.io/badge/VALGRIND-purple?style=for-the-badge&logo=v&logoColor=white](https://img.shields.io/badge/VALGRIND-purple?style=for-the-badge&logo=v&logoColor=white)" alt="Valgrind badge">
-    <img src="[https://img.shields.io/badge/VIM-019733?style=for-the-badge&logo=vim&logoColor=white](https://img.shields.io/badge/VIM-019733?style=for-the-badge&logo=vim&logoColor=white)" alt="Vim badge">
-    <img src="[https://img.shields.io/badge/LINUX-FCC624?style=for-the-badge&logo=linux&logoColor=black](https://img.shields.io/badge/LINUX-FCC624?style=for-the-badge&logo=linux&logoColor=black)" alt="Linux badge">
+    <img src="https://img.shields.io/badge/C-a8b9cc?style=for-the-badge&logo=c&logoColor=white" alt="C badge">
+    <img src="https://img.shields.io/badge/GIT-f05032?style=for-the-badge&logo=git&logoColor=white" alt="Git badge">
+    <img src="https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub badge">
+    <img src="https://img.shields.io/badge/VALGRIND-purple?style=for-the-badge&logo=v&logoColor=white" alt="Valgrind badge">
+    <img src="https://img.shields.io/badge/VIM-019733?style=for-the-badge&logo=vim&logoColor=white" alt="Vim badge">
+    <img src="https://img.shields.io/badge/KDE-1D79C7?style=for-the-badge&logo=kde&logoColor=white" alt="KDE badge">
 </p>
 
 ## Authors
