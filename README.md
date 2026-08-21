@@ -281,7 +281,7 @@ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./hsh
 ## Authors
 
 * **Cédric COINDARD--LAGRESLE** - GitHub: [HeroFactory16](https://github.com/HeroFactory16) - Email: `cedric.coinlag@gmail.com`
-* **Laurent ROSE-ANTOINETTE** - GitHub: [lau-ro19](https://github.com/lau-ro19)
+* **Laurent ROSE-ANTOINETTE** - GitHub: [lau-ro19](https://github.com/lau-ro19) - Email: `lroseantoinette@gmail.com`
 
 ## License
 
