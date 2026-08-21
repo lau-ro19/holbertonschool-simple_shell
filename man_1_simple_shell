@@ -1,0 +1,76 @@
+.TH SIMPLE_SHELL 1 "August 2026" "Version 1.0" "Simple Shell Manual"
+.SH NAME
+hsh \- simple Unix command line interpreter
+.SH SYNOPSIS
+.B ./hsh
+.SH DESCRIPTION
+.B hsh
+is a simple Unix command language interpreter that executes commands read from standard input or from a file.
+
+.SH FEATURES
+.IP \(bu 4
+Displays a prompt and waits for the user to type a command.
+.IP \(bu 4
+Executes executable files located in the directories listed in the
+.B PATH
+environment variable, as well as absolute and relative paths.
+.IP \(bu 4
+Handles command lines with arguments separated by spaces or tabs.
+.IP \(bu 4
+Supports interactive and non-interactive modes.
+.IP \(bu 4
+Implements built-in commands
+.B exit
+and
+.B env
+\&.
+
+.SH BUILT-IN COMMANDS
+.TP
+.B exit
+Exits the shell with the status code of the last executed command.
+.TP
+.B env
+Prints the current environment variables to standard output.
+
+.SH USAGE EXAMPLES
+.SS Interactive Mode
+Start the shell:
+.PP
+.RS 4
+.nf
+$ ./hsh
+/your/current/directory$ ls -l
+/your/current/directory$ pwd
+/your/current/directory$ exit
+.fi
+.RE
+
+.SS Non-Interactive Mode
+Pipe commands into the shell:
+.PP
+.RS 4
+.nf
+$ echo "ls -l" | ./hsh
+$ echo "env" | ./hsh
+.fi
+.RE
+
+.SH RETURN VALUE
+Returns the status of the last executed command, or 127 if a command was not found.
+
+.SH DIAGNOSTICS
+If a command is not found, the shell prints an error message to standard error formatted as:
+.PP
+.RS 4
+\fIprog_name\fR: \fIline_number\fR: \fIcommand\fR: not found
+.RE
+
+.SH AUTHORS
+Written by:
+.br
+.B Cédric COINDARD--LAGRESLE
+(GitHub: \fIHeroFactory16\fR) <cedric.coinlag@gmail.com>
+.br
+.B Laurent ROSE-ANTOINETTE
+(GitHub: \fIlau-ro19\fR)
