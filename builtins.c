@@ -10,7 +10,7 @@
  *
  * Return: 1 if a built-in was executed, 0 otherwise
  */
-int check_builtin(char **args, char **env)
+int check_builtin(char **args, char **env, int status)
 {
 	int i;
 
@@ -20,7 +20,7 @@ int check_builtin(char **args, char **env)
 	if (strcmp(args[0], "exit") == 0)
 	{
 		free_argv(args);
-		exit(0);
+		exit(status);
 	}
 
 	if (strcmp(args[0], "env") == 0)

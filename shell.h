@@ -14,7 +14,7 @@ char *get_path_env(void);
 char *build_path(char *dir, char *command);
 char *get_valid_path(char *command);
 int execute_command(char *path, char **args, char **env);
-int check_builtin(char **args, char **env);
+int check_builtin(char **args, char **env, int status);
 char *search_in_path(char *command);
 char **split_line(char *line);
 int process_line(char *line, char *prog_name, int line_num, int *status);
