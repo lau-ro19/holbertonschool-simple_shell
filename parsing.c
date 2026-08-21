@@ -112,6 +112,18 @@ int process_line(char *line, char *prog_name, int line_num, int *status)
 		free_argv(args);
 		return (0);
 	}
+	if (strcmp(args[0], "env") == 0)
+	{
+		int i;
+
+		for (i = 0; environ[i] != NULL; i++)
+		{
+			write(STDOUT_FILENO, environ[i], strlen(environ[i]));
+			write(STDOUT_FILENO, "\n", 1);
+		}
+		free_argv(args);
+		return (1);
+	}
 	path = get_valid_path(args[0]);
 	if (path == NULL)
 	{
